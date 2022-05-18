@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "netguru-ddd-workshop"
+version = "0.1.0"
+description = ""
+authors = ["Szymon Miks <szymon.miks@netguru.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pymongo = "^4.1.1"
+kink = "^0.6.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+black = "^22.3.0"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+mypy = "^0.950"
+pytest-cov = "^3.0.0"
+pre-commit = "^2.19.0"
+safety = "^1.10.3"
+bandit = "^1.7.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ["py39"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "pass",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "nocov",
+    "if TYPE_CHECKING:",
+]
+fail_under = 80
+show_missing = true
+omit = [
+    "ddd_workshop/building_blocks/logger.py",
+    "ddd_workshop/bootstrap.py"
+]
+
+[tool.coverage.run]
+branch = true
+omit = [
+    "tests/*"
+]
