@@ -38,6 +38,10 @@ exclude_lines = [
 ]
 fail_under = 80
 show_missing = true
+omit = [
+    "ddd_workshop/building_blocks/logger.py",
+    "ddd_workshop/bootstrap.py"
+]
 
 [tool.coverage.run]
 branch = true

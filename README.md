@@ -26,6 +26,7 @@ It does not cover:
 - Modules
 - Domain services
 - Integration events
+- Policies
 
 ## Domain description
 

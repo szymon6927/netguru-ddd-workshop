@@ -8,8 +8,6 @@ def mongo_repo_serializer(data: List[Tuple[str, Any]]) -> Dict[str, Any]:
     for key, value in data:
         if isinstance(value, Enum):
             result[key] = value.value
-        elif key == "_domain_events":
-            continue
         elif key == "id":
             result["_id"] = value
         else:
