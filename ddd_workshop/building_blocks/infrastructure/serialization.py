@@ -1,8 +1,10 @@
 from enum import Enum
-from typing import Any, Dict, List, Tuple
+from typing import Any, List, Tuple
+
+from ddd_workshop.building_blocks.custom_types import MongoDocument
 
 
-def mongo_repo_serializer(data: List[Tuple[str, Any]]) -> Dict[str, Any]:
+def mongo_repo_serializer(data: List[Tuple[str, Any]]) -> MongoDocument:
     result = {}
 
     for key, value in data:

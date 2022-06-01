@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from datetime import datetime
 from typing import Iterator
 
@@ -7,16 +6,11 @@ from bson.objectid import ObjectId
 from pymongo import MongoClient
 from pymongo.database import Database
 
-from ddd_workshop.building_blocks.domain.domain_event import DomainEvent
-
-
-@dataclass(frozen=True)
-class FakeEvent(DomainEvent):
-    message: str
+from ddd_workshop.building_blocks.custom_types import MongoDocument
 
 
 @pytest.fixture()
-def new_mongodb() -> Iterator[Database]:
+def mongodb() -> Iterator[Database]:
     mongo_client: MongoClient = MongoClient("mongodb://localhost:27017/")
 
     database = mongo_client.get_database("wallet")
@@ -27,5 +21,14 @@ def new_mongodb() -> Iterator[Database]:
 
 
 @pytest.fixture()
-def fake_event() -> DomainEvent:
-    return FakeEvent(id=ObjectId(), name="fake.event", occurred_on=datetime.utcnow(), message="test")
+def wallet_raw_document() -> MongoDocument:
+    return {
+        "_id": ObjectId(),
+        "name": "test wallet",
+        "owner": ObjectId(),
+        "balance": {
+            "amount": 100,
+            "currency": "USD",
+        },
+        "created_at": datetime.utcnow(),
+    }

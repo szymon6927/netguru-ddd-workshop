@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Dict
 
 from bson.objectid import ObjectId
 
@@ -38,7 +37,6 @@ class Wallet(Entity):
                 wallet_name=wallet._name,
             )
         )
-        print(wallet)
         return wallet
 
     def increase_balance(self, amount: Money) -> None:
@@ -48,7 +46,7 @@ class Wallet(Entity):
         if amount.currency != self._balance.currency:
             raise WrongCurrency("Amount currency is different than wallet currency")
 
-        self._balance = amount
+        self._balance += amount
         self._add_domain_event(
             WalletBalanceIncreased(
                 id=ObjectId(),
@@ -84,7 +82,7 @@ class Wallet(Entity):
             )
         )
 
-    def to_snapshot(self) -> Dict[str, Any]:
+    def to_snapshot(self) -> MongoDocument:
         return {
             "_id": self._id,
             "name": self._name,

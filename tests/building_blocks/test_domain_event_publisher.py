@@ -5,13 +5,13 @@ from ddd_workshop.building_blocks.infrastructure.domain_event_publisher import S
 from ddd_workshop.building_blocks.infrastructure.event_store import IEventStore
 
 
-def test_can_publish_event(fake_event: DomainEvent) -> None:
+def test_can_publish_event(workshop_started_test_event: DomainEvent) -> None:
     # given
     event_store = Mock(spec_set=IEventStore)
     event_publisher = StoreAndForwardDomainEventPublisher(event_store)
 
     # when
-    event_publisher.publish(fake_event)
+    event_publisher.publish(workshop_started_test_event)
 
     # then
-    event_store.save.assert_called_once_with(fake_event)
+    event_store.save.assert_called_once_with(workshop_started_test_event)

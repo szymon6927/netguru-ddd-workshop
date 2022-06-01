@@ -26,12 +26,9 @@ class WalletService:
         wallet = Wallet.create(name=command.name, owner=command.owner, currency=Currency(command.currency))
 
         for event in wallet.events:
-            print("event: ", event)
             self._domain_event_publisher.publish(event)
 
         self._repository.save(wallet)
-
-        print(wallet.events)
 
         return wallet
 

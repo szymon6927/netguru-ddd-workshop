@@ -23,3 +23,9 @@ def test_can_sub() -> None:
     assert Money.of(100, Currency.GBP.value) - Money.of(50, Currency.GBP.value) == Money.of(50, Currency.GBP.value)
     with pytest.raises(WrongCurrency):
         Money.of(100, Currency.GBP.value) - Money.of(100, Currency.USD.value)
+
+
+def test_can_multiply() -> None:
+    assert Money.of(50, Currency.GBP.value) * Money.of(50, Currency.GBP.value) == Money.of(2500, Currency.GBP.value)
+    with pytest.raises(WrongCurrency):
+        Money.of(10, Currency.USD.value) * Money.of(10, Currency.GBP.value)

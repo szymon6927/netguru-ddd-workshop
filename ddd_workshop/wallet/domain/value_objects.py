@@ -26,6 +26,12 @@ class Money:
             raise WrongCurrency("Can not subtract money with different currency!")
         return Money(self.amount - other.amount, self.currency)
 
+    def __mul__(self, other: "Money") -> "Money":
+        if other.currency != self.currency:
+            raise WrongCurrency("Can not multiply money with different currency!")
+
+        return Money(self.amount * other.amount, self.currency)
+
     def __lt__(self, other: "Money") -> bool:
         return self.amount < other.amount and self.currency == other.currency
 

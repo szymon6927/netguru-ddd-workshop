@@ -30,3 +30,12 @@ class Transaction:
     amount: int
     currency: str
     type: str
+
+
+@dataclass
+class Wallet:
+    id: ObjectId
+    name: str
+    owner: ObjectId
+    amount: int
+    currency: str
