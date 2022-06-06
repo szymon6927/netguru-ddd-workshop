@@ -1,4 +1,6 @@
 # netguru-ddd-workshop
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
 DDD workshop during integration meeting with Netguru's workmates.
 
 ## Table of contents
@@ -63,3 +65,18 @@ $ poetry install
 ```bash
 $ poetry run pre-commit install
 ```
+
+3. Run MongoDB
+
+```bash
+$ docker-compose up -d
+```
+
+## Final implementation
+
+The example implementation you can find on the [final-implementation](https://github.com/szymon6927/netguru-ddd-workshop/tree/final-implementation) branch
+
+### Meta
+If you have any questions/problems/thoughts drop me a line
+
+Szymon Miks – miks.szymon@gmail.com
