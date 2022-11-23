@@ -3,6 +3,10 @@
 
 DDD workshop during integration meeting with Netguru's workmates.
 
+## Final implementation
+
+The example implementation you can find on the [final-implementation](https://github.com/szymon6927/netguru-ddd-workshop/tree/final-implementation) branch
+
 ## Table of contents
 
 * [About](#about)
@@ -71,10 +75,6 @@ $ poetry run pre-commit install
 ```bash
 $ docker-compose up -d
 ```
-
-## Final implementation
-
-The example implementation you can find on the [final-implementation](https://github.com/szymon6927/netguru-ddd-workshop/tree/final-implementation) branch
 
 ### Meta
 If you have any questions/problems/thoughts drop me a line
